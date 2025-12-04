@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from "./components/Card";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>React CI/CD Demo</h1>
+
+      <Card 
+        title="Continuous Integration"
+        description="Every time you push code to GitHub, it gets built automatically."
+      />
+
+      <Card 
+        title="Continuous Deployment"
+        description="The deployed site updates automatically on AWS EC2."
+      />
+
+      <Card 
+        title="Docker & Nginx"
+        description="This React app is dockerized and served using Nginx inside a container."
+      />
     </div>
   );
 }
