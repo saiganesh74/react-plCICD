@@ -1,0 +1,32 @@
+- hosts: EC2
+  become: yes 
+  tasks:
+    - name: Updating Apt cache
+      apt:
+        update_cache: yes
+    
+    - name: Installing Dependencies
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl 
+          - software-properties-common 
+        state: present 
+
+    - name: Installing Docker 
+      apt:
+        name: docker.io 
+        state: present
+      
+    - name: Adding Docker to group 
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    - name: Enable docker 
+      systemd:
+        name: docker 
+        enabled: yes 
+        state: started 

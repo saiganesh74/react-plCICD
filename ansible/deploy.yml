@@ -1,0 +1,14 @@
+- hosts: ec2 
+  become: yes 
+  tasks:
+    - name: Loading Docker image 
+      shell:  docker load < /home/ubuntu/react-cicd.tar.gz
+
+    - name: Stopping Old docker container 
+      shell: docker stop react-cicd || true 
+
+    - name: Deleting Previous containers 
+      shell: docker rm react-cicd || true 
+
+    - name: Running a new container 
+      shell: docker run -d --name react-cicd  -p 80:80 react-cicd
