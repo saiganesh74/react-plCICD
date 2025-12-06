@@ -1,4 +1,4 @@
-- hosts: EC2
+- hosts: ec2
   become: yes 
   tasks:
     - name: Updating Apt cache
