@@ -39,6 +39,7 @@ jobs:
         source: "react-cicd.tar.gz"
         target: "/home/${{ secrets.EC2_USER }}/"
 
+
     - name: Deploy using Ansible
       run: |
         ansible-playbook -i ansible/inventory ansible/deploy.yml
