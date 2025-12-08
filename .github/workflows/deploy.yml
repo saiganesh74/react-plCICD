@@ -18,7 +18,7 @@ jobs:
     - name: Create private key file
       run: |
         echo "${{ secrets.EC2_SSH_KEY }}" > mumbai-devops.pem
-        chmod 600 MumbaiDevOps.pem
+        chmod 600 mumbai-devops.pem
 
     - name: Run Ansible Playbook to install Docker
       run: |
